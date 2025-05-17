@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="paymentForm">
+        <label for="card-element">
+           Credit or debit card
+        </label>
+        <div id="card-element">
+           <!-- A Stripe Element will be inserted here. -->
+        </div>
+       
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+       
+        <button id="submit">Submit Payment</button>
+       </form>
+       <script>
+        // Replace with your own publishable API key
+const publishableKey = 'pk_test_TYooMQauvdEDq54NiTphI7jx';
+
+// Replace with your backend endpoint that handles the payment
+const backendURL = '/create-payment-intent';
+
+// Set up Stripe.js
+const stripe = Stripe(publishableKey);
+
+// Set up Elements
+const elements = stripe.elements();
+const cardElement = elements.create('card');
+cardElement.mount('#card-element');
+
+// Handle form submission
+const form = document.getElementById('paymentForm');
+form.addEventListener('submit', async (event) => {
+ event.preventDefault();
+
+ // Create a payment method
+ const { paymentMethod, error } = await stripe.createPaymentMethod(
+    'card', cardElement, {
+      billing_details: { name: 'Jenny Rosen' },
+    }
+ );
+
+ if (error) {
+    console.error('[error]', error);
+ } else {
+    // Send the payment method details to your server
+    const response = await fetch(backendURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ paymentMethodId: paymentMethod.id }),
+    });
+
+    if (response.ok) {
+      console.log('Payment successful');
+    } else {
+      console.error('Payment failed:', response.statusText);
+    }
+ }
+});
+       </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+/* styles.css */
+@import url(fontawesome.css);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    
+}
+img{
+    position: absolute;
+    left: 0px;
+    top: opx;
+    z-index: -1;
+    height: 200%;
+    width:100%;
+    filter: blur(10px);
+    background-position: center;
+    background-size: cover;
+
+}
+
+
+
+@media screen and (max-width: 1050px) {
+    .main-header .logo {
+        padding-left: 30px!important;
+    }
+  
+    .main-menu {
+        padding-right: 30px!important;
+    }
+  
+    .main-menu li {
+        margin-left: 5px!important;
+    }
+  }
+
+
+header {
+    background-color: rgba(22,34,57,0.95);
+    height: 80px;
+    position:fixed;
+    z-index: 12;
+    width: 100%;
+    top: 0;
+}
+
+header a{
+    text-align: left;
+    padding-left: 30px!important;
+    font-size: 30px;
+    color: rgb(247, 248, 249);
+    text-decoration: none;   
+}
+header .logo {
+    float: left;
+    line-height: 80px;
+    padding-left: 60px;
+
+}
+
+
+header .logo a em {
+    color: #FC3;
+    text-decoration: none;
+}
+
+.main-menu {
+    float: right;
+    padding-right: 60px;
+}
+
+.main-menu li {
+    display: inline-block;
+    line-height: 79px;
+    margin-right: 15px;
+    position: relative;
+}
+
+
+.main-menu li:first-child {
+    margin-right: 0px;
+}
+
+.main-menu li a {
+    padding: 10px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #f9f8f8;
+    border: 2px solid transparent;
+    transition: all 0.5s;
+}
+  
+  .main-nav li:hover a,
+  .main-nav li.active a {
+      border: 2px solid #f5a425;
+  }
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-banner {
+    position: relative;
+    max-height: 100%;
+    overflow: hidden;
+    margin-bottom: -7px;
+  }
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #c5c0c0;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(199, 168, 168, 0.1);
+ 
+
+}
+
+
+.overview{
+    background-color: #f9f8f8;
+    
+
+}
+#syllabus
+{
+  display: flex;
+  flex-direction: row-reverse; /* Change the direction to reverse the order of flex items */
+  align-items:flex-start; /* Center align items vertically */
+  justify-content: space-between; /* Add space between the two items */
+
+    background-color: #f9f8f8;
+    flex-direction: row;
+}
+.video{
+  max-width: 50%; /* Set the maximum width for the video */
+  box-shadow: 0 0 10px rgba(77, 71, 71, 0.1);
+  border-radius: 5px;
+  margin-left: 20px; /* Adjust the margin as needed */
+  
+  flex-direction: right;
+  box-shadow: 0 0 10px rgba(77, 71, 71, 0.1);;
+  border-radius: 5px;
+}
+.h3{
+  flex-direction: right;
+ text-align: left;
+}
+
+
+/* Add a media query to adjust styles for smaller screens if necessary */
+@media screen and (max-width: 768px) {
+  #syllabus {
+      flex-direction: column; /* Stack the items vertically on smaller screens */
+  }
+
+  .video {
+      
+      max-width: 100%; /* Occupy full width on smaller screens */
+      margin-left: 0; /* Remove margin on smaller screens */
+    
+  }
+}
+footer {
+    background-color: #152036;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0px;
+    padding: 25px 0px;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+footer p a,
+footer p a:hover {
+    color: #f5a425;
+}
+
+footer.links{
+    text-align: left;
+}
+
+@media screen and (max-width: 992px) {
+  .features { background-color: #cfd7f5; }
+  .features-content { position: relative; }
+  .features-post { border-left: 0 }
+}
+
+@media screen and (max-width: 950px) {
+  .main-menu { padding-right: 0!important; }
+  .main-header .logo {
+    line-height: 73px;
+  }
+  .main-menu li {
+    display: block;
+    line-height: 1;
+    margin-left: 0 !important;
+  }
+
+  .main-menu li .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .main-menu li .sub-menu li:last-child {
+    border-bottom: 1px solid rgba(240, 231, 231, 0.721);
+  }
+}
+
+@media screen and (max-width: 950px) and (max-height: 400px) {
+  nav[role="navigation"].active {
+    max-height: calc(80px + 100vh);
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  footer p {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+  }
+}
+ 
